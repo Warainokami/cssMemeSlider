@@ -10,7 +10,7 @@
     gap: 1rem;
     padding: 2rem;
     color: rgb(252, 247, 247);
-    /* background-color: rgba(66, 63, 63, 0.579); */
+    background-color: rgba(23, 58, 30, 0.579);
     background-image:url(./img/Back.jpg);
     background-repeat: no-repeat;
     background-position: center center;
@@ -165,10 +165,10 @@
     }
   }
   
-  @media (max-width: 768px) {
+  @media (min-width: 1px) and (max-width: 768px) {
 
     .body {
-    background-color: rgba(66, 63, 63, 0.579);
+    background: rgba(16, 32, 19, 0.579);
     }
 
     .mems-content {
