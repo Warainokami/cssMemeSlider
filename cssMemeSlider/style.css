@@ -8,9 +8,12 @@
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
+    padding: 2rem;
     color: rgb(252, 247, 247);
-    background-color: rgba(66, 63, 63, 0.579);
+    /* background-color: rgba(66, 63, 63, 0.579); */
+    background-image:url(./img/Back.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
   }
   
 .mems-wrapper {
@@ -64,6 +67,7 @@
     justify-content: center;
     padding: 0.3rem;
     cursor: pointer;
+    height: 3rem;
   }
   
   .controls-item:active .controls-button {
@@ -74,12 +78,109 @@
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background-color: #3707d6;
+    background-color: #0d0c10;
   }
   
   .controls-item:hover .controls-button {
-    background-color: #f7f7f7;
+    background-color: #ccc8c8;
     transition: background 0.3s;
   }
 
+  #slide1:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(1),
+#slide2:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(2),
+#slide3:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(3),
+#slide4:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(4) {
+  cursor: default;
+}
+
+#slide1:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(1)
+  .controls-button,
+#slide2:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(2)
+  .controls-button,
+#slide3:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(3)
+  .controls-button,
+#slide4:checked
+  ~ .mems-content
+  .content-controls
+  .controls-item:nth-child(4)
+  .controls-button {
+  background-color: transparent;
+  border: 0.2rem solid #76a16b;
+  cursor: default;
+}
+
+#slide1:checked ~ .mems__slider .slider-image:nth-child(1),
+#slide2:checked ~ .mems__slider .slider-image:nth-child(2),
+#slide3:checked ~ .mems__slider .slider-image:nth-child(3),
+#slide4:checked ~ .mems__slider .slider-image:nth-child(4) {
+  opacity: 1;
+  animation: deployment 2s ease;
+}
+
+.mems-input#slide1:checked ~ .mems-content .list-item:nth-child(1),
+.mems-input#slide2:checked ~ .mems-content .list-item:nth-child(2),
+.mems-input#slide3:checked ~ .mems-content .list-item:nth-child(3),
+.mems-input#slide4:checked ~ .mems-content .list-item:nth-child(4) {
+  z-index: 1;
+  opacity: 1;
+  animation: on-right 2s ease;
+}
+
+@keyframes deployment {
+    from {
+      transform: scale(0.5, 0.5);
+    }
+    to {
+      transform: translate(0);
+    }
+  }
+  
+  @keyframes on-right {
+    from {
+      transform: translate(100%);
+    }
+    to {
+      transform: translate(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+
+    .body {
+    background-color: rgba(66, 63, 63, 0.579);
+    }
+
+    .mems-content {
+      flex-direction: column-reverse;
+    }
+  
+    .content-controls {
+      justify-content: center;
+    }
+  
+    .content-list {
+      padding-top: 1rem;
+    }
+  }
   
